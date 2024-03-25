@@ -12,9 +12,12 @@ func main() {
 
 	e.POST("/todo", handlers.CreateTodo)
 	e.GET("/todos", handlers.GetTodos)
+	e.GET("/todo/:id", handlers.ReadTodo)
+	e.PUT("/todo/:id", handlers.UpdateTodo)
+	e.DELETE("/todo/:id", handlers.DeleteTodo)
 
 	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello, World!")
+		return c.String(http.StatusOK, "My Todo App")
 	})
 	e.Logger.Fatal(e.Start(":1323"))
 }
