@@ -1,6 +1,8 @@
 package main
 
 import (
+	"log"
+	"marie_paganel/todo/database"
 	"marie_paganel/todo/handlers"
 	"net/http"
 
@@ -8,6 +10,12 @@ import (
 )
 
 func main() {
+
+	err := database.ConnectToDatabase()
+	if err != nil {
+		log.Fatalf("failed to connect to database: %v", err)
+	}
+
 	e := echo.New()
 
 	e.POST("/todo", handlers.CreateTodo)

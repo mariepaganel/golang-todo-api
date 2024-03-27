@@ -1,4 +1,5 @@
 # Makefile for Dockerized Echo application
+include .env
 
 # Variables
 DOCKER_COMPOSE = docker compose
@@ -12,7 +13,7 @@ help: ## Display this help message
 
 # Build and start the Docker containers
 up: ## Build and start the Docker containers
-	$(DOCKER_COMPOSE) up -d
+	$(DOCKER_COMPOSE) up -d --build
 
 # Stop the Docker containers
 down: ## Stop the Docker containers

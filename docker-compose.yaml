@@ -5,3 +5,16 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:1323"
+    depends_on:
+      - database
+    env_file:
+      - .env
+
+  database:
+    image: postgres
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - $POSTGRES_OUTER_PORT:5432
