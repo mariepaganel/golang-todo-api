@@ -7,5 +7,5 @@ This is a simple todo list API built with Go and Echo.
 To get started with the project, follow these steps:
 
 1. Clone the repository.
-2. Install the necessary dependencies.
-3. Run the application.
+2. Run `make up` in project's directory (docker compose required). 
+3. Go to localhost:8080 to access API.

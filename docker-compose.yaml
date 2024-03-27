@@ -1,0 +1,7 @@
+services:
+  todo-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:1323"
