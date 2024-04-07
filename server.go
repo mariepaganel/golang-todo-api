@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/labstack/echo/v4/middleware"
 	"log"
 	"marie_paganel/todo/database"
 	"marie_paganel/todo/handlers"
@@ -17,6 +18,9 @@ func main() {
 	}
 
 	e := echo.New()
+
+	// CORS middleware
+	e.Use(middleware.CORS())
 
 	e.POST("/todo", handlers.CreateTodo)
 	e.GET("/todos", handlers.GetTodos)
